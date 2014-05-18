@@ -24,7 +24,7 @@ e.html		= "";
 	</cfcase>
 
 	<cfcase value="winterbottom">
-		<cfset e.email = "ptrevaskis@fpr.com.au,managment@markwinterbottom.com.au">
+		<cfset e.email = "ptrevaskis@fpr.com.au,managment@markwinterbottom.com">
 	</cfcase>
 
 	<cfcase value="vern">
@@ -41,7 +41,7 @@ e.html		= "";
 <cfmail to="#e.email#" from="mark.h@edgephoto.com.au" bcc="vn@v8supercars.com.au" subject="Photo from Edge Photographics" type="html">
 	<cfmailparam file="#expandPath('dump/' & url.f & '/' & url.name)#" type="image/jpg">
 	<p>An image for you is attached.</p>
-	<p>Thanks</p>
+	<p>Thanks,<br>Mark.</p>
 </cfmail>
 Email sent to #e.name# (#e.email#)
 </cfoutput>
