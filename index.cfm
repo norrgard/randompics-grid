@@ -87,9 +87,12 @@
 					<div class="row">
 						<div class="col-12 col-lg-4">
 							<h3>Options</h3>
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=vern">Email Vern</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=ptrevaskis">Email FPR (Trevaskis)</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=mark">Email Mark</a><br />
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=ptrevaskis">FPR / Trevaskis</a><br />
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=winterbottom">Winterbottom</a><br />
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=rbr">Red Bull Racing Aust</a><br />
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=csracing">Ben Nightingale</a><br />
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=mark">Mark</a><br />
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=vern">Vern</a><br />
 						</div>
 						
 						<div class="col-12 col-lg-8"> <img src="/dump/#f#/#name#" style="width:800px" class="img-responsive"> </div>

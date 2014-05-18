@@ -8,31 +8,38 @@ e.html		= "";
 <cfswitch expression="#url.sendto#">
 
 	<cfcase value="mark">
-		<cfset e.name = "Mark">
 		<cfset e.email = "mark.h@edgephoto.com.au">
 	</cfcase>
 
 	<cfcase value="ptrevaskis">
-		<cfset e.name = "Peter Trevaskis">
 		<cfset e.email = "ptrevaskis@fpr.com.au">
 	</cfcase>
 
+	<cfcase value="rbr">
+		<cfset e.email = "jessica@tripleeight.com.au,samantha.bonner@au.redbull.com">
+	</cfcase>
+
+	<cfcase value="csracing">
+		<cfset e.email = "ben@csracing.net.au">
+	</cfcase>
+
+	<cfcase value="winterbottom">
+		<cfset e.email = "ptrevaskis@fpr.com.au,managment@markwinterbottom.com.au">
+	</cfcase>
+
 	<cfcase value="vern">
-		<cfset e.name = "Vern">
-		<cfset e.email = "vn@v8supercars.com.au">
+		<cfset e.email = "vn@v8supercars.com.au,vern@nmd.com.au">
 	</cfcase>
 	
 	<cfdefaultcase>
-		<cfset e.name = "Vern">
 		<cfset e.email = "vern@nmd.com.au">
 	</cfdefaultcase>
 
 </cfswitch>
 
 <cfoutput>
-<cfmail to="#e.email#" from="vn@v8supercars.com.au" subject="Photo from Edge" type="html">
+<cfmail to="#e.email#" from="mark.h@edgephoto.com.au" bcc="vn@v8supercars.com.au" subject="Photo from Edge Photographics" type="html">
 	<cfmailparam file="#expandPath('dump/' & url.f & '/' & url.name)#" type="image/jpg">
-	<p>#e.name#,</p>
 	<p>An image for you is attached.</p>
 	<p>Thanks</p>
 </cfmail>
