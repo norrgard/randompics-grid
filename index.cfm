@@ -88,6 +88,7 @@
 						<div class="col-12 col-lg-8"> <img src="/dump/#f#/#name#" style="width:800px" class="img-responsive"> </div>
 						<div class="col-12 col-lg-4">
 							<h3>Options</h3>
+							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=craill">Richard Craill</a><br />
 							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=ptrevaskis">FPR / Trevaskis</a><br />
 							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=winterbottom">Winterbottom</a><br />
 							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=rbr">Red Bull Racing Aust</a><br />
