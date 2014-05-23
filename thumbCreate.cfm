@@ -68,7 +68,7 @@
 				<p>
 				<cfloop query="getFolders">
 					<cfif type eq "dir">
-						<a type="button" class="btn btn-default <cfif name eq f> active</cfif>" href="/?f=#name#">#uCase(name)#</a>
+						<a type="button" class="btn btn-default <cfif name eq f> active</cfif>" href="/thumbCreate.cfm?f=#name#">#uCase(name)#</a>
 					</cfif>
 				</cfloop>
 				</p>
