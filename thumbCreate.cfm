@@ -2,7 +2,7 @@
 <cfdirectory directory="#expandPath('dump/')#" name="getFolders" action="list">
 <cfset thumbDir = expandPath('dump/' & f & '/thumbs/') />
 <cfif not directoryExists(thumbDir)>
-	<cfdirectory action="create" directory="#thumbDir#"> 
+	<cfdirectory action="create" directory="#thumbDir#">
 </cfif>
 <cfoutput>
 
@@ -72,14 +72,14 @@
 					</cfif>
 				</cfloop>
 				</p>
-				
+
 				<!--- email --->
 				<cfif isDefined("url.sendto")>
 					<div class="alert alert-success">
 						<cfinclude template="email.cfm">
 					</div>
 				</cfif>
-				
+
 
 				<!--- show files --->
 				<cfdirectory directory="#expandPath('dump/#f#')#" name="getFiles" action="list" sort="name">
@@ -91,23 +91,26 @@
 							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=ptrevaskis">Email FPR (Trevaskis)</a><br />
 							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=mark">Email Mark</a><br />
 						</div>
-						
+
 						<div class="col-12 col-lg-8"> <img src="/dump/#f#/#name#" style="width:800px" class="img-responsive"> </div>
 					</div>
 				</cfif>
-				
-				
+
+
 				<h2>Images on files</h2>
 				<p>Count: #getFiles.recordCount#</p>
 				<cfloop query="getFiles">
-					<cfif right(name, 3) eq "jpg">
-						<cfset imglo = expandPath('dump/' & f & '/' & name) />
-						<cfset thumb = expandPath('dump/' & f & '/thumbs/' & name) />
-						<cfif not fileExists(thumb)>
-							<cfimage action = "resize" width="100" height="80" source="#imglo#" destination="#thumb#" overwrite="yes">
-							Created: #thumb#<br />
+					<cftry>
+						<cfif right(name, 3) eq "jpg">
+							<cfset imglo = expandPath('dump/' & f & '/' & name) />
+							<cfset thumb = expandPath('dump/' & f & '/thumbs/' & name) />
+							<cfif not fileExists(thumb)>
+								<cfimage action = "resize" width="100" height="80" source="#imglo#" destination="#thumb#" overwrite="yes">
+								Created: #thumb#<br />
+							</cfif>
 						</cfif>
-					</cfif>
+						<cfcatch type="any">#cfcatch.message#</cfcatch>
+					</cftry>
 				</cfloop>
 			</div>
 

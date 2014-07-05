@@ -58,10 +58,10 @@
 
 		<div class="row">
 			<div class="col-xs-6">
-				<iframe id="analytics" src="https://www.google.com/analytics/web/?pli=1" width="100%" height="500"></iframe>
+				<iframe id="analytics" src="http://54.252.97.65:8088/fusionreactor/findex.htm?p=running&__toc=transit&flavor=HTTPClient" width="100%" height="500"></iframe>
 			</div>
 			<div class="col-xs-6">
-				<iframe id="streamCheck" src="http://check.v8superview.com/" width="100%" height="500"></iframe>
+				<iframe id="streamCheck" src="http://ec2-54-253-59-246.ap-southeast-2.compute.amazonaws.com:8088/fusionreactor/findex.htm?p=running&__toc=transit&flavor=HTTPClient" width="100%" height="500"></iframe>
 			</div>
 		</div>
 
