@@ -24,7 +24,7 @@ e.html		= "";
 	</cfcase>
 
 	<cfcase value="winterbottom">
-		<cfset e.email = "ptrevaskis@fpr.com.au,managment@markwinterbottom.com">
+		<cfset e.email = "ptrevaskis@fpr.com.au,management@markwinterbottom.com">
 	</cfcase>
 
 	<cfcase value="craill">
@@ -34,11 +34,11 @@ e.html		= "";
 	<cfcase value="vern">
 		<cfset e.email = "vn@v8supercars.com.au,vern@nmd.com.au">
 	</cfcase>
-	
+
 	<cfcase value="ford">
 		<cfset e.email = "fb@v8supercars.com.au">
 	</cfcase>
-	
+
 	<cfdefaultcase>
 		<cfset e.email = "vern@nmd.com.au">
 	</cfdefaultcase>
