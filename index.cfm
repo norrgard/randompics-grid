@@ -26,33 +26,35 @@
 
  <body role="document">
 
-	  <!-- Fixed navbar -->
-	  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		  <div class="container">
-			  <div class="navbar-header">
-				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					  <span class="sr-only">Toggle navigation</span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-				  </button>
-				  <a class="navbar-brand" href="/">Home</a>
-			  </div>
-			  <div class="navbar-collapse collapse">
-				  <ul class="nav navbar-nav">
-					  <li class="dropdown">
-						  <a href="##" class="dropdown-toggle" data-toggle="dropdown">Directories <b class="caret"></b></a>
-						  <ul class="dropdown-menu">
-			  				<cfloop query="getFolders">
-							  <li><a href="/?f=#name#">#uCase(name)#</a></li>
-							 </cfloop>
-						  </ul>
-					  </li>
-					  <li><a href="/thumbCreate.cfm">Thmbnail Create</a></li>
-				  </ul>
-			  </div><!--/.nav-collapse -->
-		  </div>
-	  </div>
+ <!-- Fixed navbar -->
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	 <div class="container">
+		 <div class="navbar-header">
+			 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+			 </button>
+			 <a class="navbar-brand" href="/">Home</a>
+		 </div>
+		 <div class="navbar-collapse collapse">
+			 <ul class="nav navbar-nav">
+				 <li class="dropdown">
+					 <a href="##" class="dropdown-toggle" data-toggle="dropdown">Directories <b class="caret"></b></a>
+					 <ul class="dropdown-menu">
+						 <cfloop query="getFolders">
+							 <cfif type eq "dir">
+								 <li><a href="/?f=#name#">#uCase(name)#</a></li>
+							 </cfif>
+						 </cfloop>
+					 </ul>
+				 </li>
+				 <li><a href="/thumbCreate.cfm">Thmbnail Create</a></li>
+			 </ul>
+		 </div><!--/.nav-collapse -->
+	 </div>
+ </div>
 
     <div class="container theme-showcase" role="main">
 
