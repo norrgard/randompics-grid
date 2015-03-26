@@ -72,8 +72,7 @@
 	<!--- show files --->
 	<cfdirectory directory="#expandPath('dump/#f#')#" name="getFiles" action="list" sort="name">
 
-	<h2>Images on files</h2>
-	<p>Count: #getFiles.recordCount#</p>
+	<p>Images on files count: #getFiles.recordCount#</p>
 	<cfset fileCount = 0 />
 	<cfloop query="getFiles">
 		<cftry>
