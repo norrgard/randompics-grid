@@ -64,7 +64,7 @@
 				<!--- email --->
 				<cfif isDefined("url.sendto")>
 					<div class="alert alert-success">
-						<cfinclude template="email.cfm">
+						<cfinclude template="_email.cfm">
 					</div>
 				</cfif>
 				
