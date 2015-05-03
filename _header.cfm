@@ -21,6 +21,7 @@
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="/css/style.css" rel="stylesheet">
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
 
 <body role="document">
