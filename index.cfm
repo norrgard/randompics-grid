@@ -8,9 +8,10 @@
 				</cfif>
 				
 
-				<!--- show files --->
+				<!--- get files --->
 				<cfdirectory directory="#expandPath('dump/#f#')#" name="getFiles" action="list" sort="name" filter="*.jpg">
 				
+				<!--- display file details --->
 				<cfif isDefined("url.name")>
 					<cfset thisCurrentRow = 0 />
 					<cfloop query = "getFiles">
@@ -52,9 +53,26 @@
 						</div>					
 					</div>
 				</cfif>
-				
-				
 				<p>Count: #getFiles.recordCount#</p>
+				
+				<!--- reset folder --->
+				<cfif f eq "default" and getFiles.recordCount gt 0>
+					<div class="row">
+						<div class="col-xs-12">
+							<button type="button" class="btn btn-primary btn-sm resetButton">Reset Folder</button>
+							<div class="resetForm" style="margin:10px 0; display:none;">
+								<form action="reset.cfm" method="post" class="form-inline">
+									<div class="form-group">
+										<input type="text" name="folderName" class="form-control" id="folderName" placeholder="New Folder Name">
+									</div>
+									<button type="submit" class="btn btn-default">Reset Folder</button>
+								</form>
+							</div>
+						</div>
+					</div><!--- row --->
+				</cfif>
+				
+				<!--- show thumbnails --->
 				<cfloop query="getFiles">
 					<cfif right(name, 3) eq "jpg">
 						<cfset imglo = expandPath('dump/' & f & '/' & name) />
@@ -66,6 +84,13 @@
 						</cfif>
 					</cfif>
 				</cfloop>
+<script type="text/javascript">
+$(document).ready(function() {	
+	$('.resetButton').click(function() {
+		$('.resetForm').slideToggle('slow');
+	});
+});
+</script>
 
 </cfoutput>
-<cfinclude template="_header.cfm">
+<cfinclude template="_footer.cfm">
