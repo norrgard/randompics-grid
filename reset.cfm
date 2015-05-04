@@ -49,22 +49,32 @@ function updateProgress(p,msg) {
 		<!--- list files - thumbnails --->
 		<cfdirectory directory = "#expandPath('dump/default/thumbs')#" action = "list" name = "getAllThumbs">
 		<cfloop query = "getAllThumbs">
-			<cfif getAllThumbs.type eq "file">
-				<cffile action = "move" source = "#expandPath('dump/default/thumbs')#/#getAllThumbs.name#" destination = "#newDirThumb#">
-				<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllThumbs.currentRow/getAllThumbs.recordCount)*100)#,'Moving thumbnail #getAllThumbs.name#');">
-				<cfflush />
-			</cfif>
+			<cftry>
+				<cfif getAllThumbs.type eq "file">
+					<cffile action = "move" source = "#expandPath('dump/default/thumbs')#/#getAllThumbs.name#" destination = "#newDirThumb#">
+					<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllThumbs.currentRow/getAllThumbs.recordCount)*100)#,'Moving thumbnail #getAllThumbs.name#');">
+					<cfflush />
+				</cfif>
+				<cfcatch type = "any">
+					<div class="alert alert-info" role="alert">#cfcatch.message#</div>
+				</cfcatch>
+			</cftry>
 		</cfloop>
 		
 
 		<!--- list files - main --->
 		<cfdirectory directory = "#expandPath('dump/default')#" action = "list" name = "getAllFiles">
 		<cfloop query = "getAllFiles">
-			<cfif getAllFiles.type eq "file">
-				<cffile action = "move" source = "#expandPath('dump/default')#/#getAllFiles.name#" destination = "#newDir#">
-				<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllFiles.currentRow/getAllFiles.recordCount)*100)#,'Moving image #getAllFiles.name#');">
-				<cfflush />
-			</cfif>
+			<cftry>
+				<cfif getAllFiles.type eq "file">
+					<cffile action = "move" source = "#expandPath('dump/default')#/#getAllFiles.name#" destination = "#newDir#">
+					<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllFiles.currentRow/getAllFiles.recordCount)*100)#,'Moving image #getAllFiles.name#');">
+					<cfflush />
+				</cfif>
+				<cfcatch type = "any">
+					<div class="alert alert-info" role="alert">#cfcatch.message#</div>
+				</cfcatch>
+			</cftry>
 		</cfloop>
 		
 
