@@ -24,7 +24,21 @@ function updateProgress(p,msg) {
 		</div>
 	<cfelse>
 		<div class="alert alert-danger" role="alert">
-			Directory #newDir# already exists, are you sure you want to move files to this directory?</p>
+			Directory #newDir# already exists!</p>
+		</div>
+		<cfset keepGoing = false />
+	</cfif>
+	
+	<!--- create thumbnail directory --->
+	<cfset newDirThumb = expandPath('dump/' & form.folderName & '/thumbs') />
+	<cfif not directoryExists(newDirThumb)>
+		<cfdirectory action="create" directory="#newDirThumb#">
+		<div class="alert alert-success" role="alert">
+			Created directory #newDirThumb#
+		</div>
+	<cfelse>
+		<div class="alert alert-danger" role="alert">
+			Thumbnail directory #newDirThumb# already exists!</p>
 		</div>
 		<cfset keepGoing = false />
 	</cfif>
@@ -32,13 +46,29 @@ function updateProgress(p,msg) {
 	<!--- if directory check ok --->
 	<cfif keepGoing>
 
-		<cfdirectory directory = "#expandPath('dump/default')#" action = "list" name = "getAllFiles">
-		<cfloop query = "getAllFiles">
-			<cffile action = "move" source = "#expandPath('dump/default')#/#getAllFiles.name#" destination = "#newDir#">
-			<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllFiles.currentRow/getAllFiles.recordCount)*100)#,'Moving file #getAllFiles.name#');">
-			<cfflush />
+		<!--- list files - thumbnails --->
+		<cfdirectory directory = "#expandPath('dump/default/thumbs')#" action = "list" name = "getAllThumbs">
+		<cfloop query = "getAllThumbs">
+			<cfif getAllThumbs.type eq "file">
+				<cffile action = "move" source = "#expandPath('dump/default/thumbs')#/#getAllThumbs.name#" destination = "#newDirThumb#">
+				<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllThumbs.currentRow/getAllThumbs.recordCount)*100)#,'Moving thumbnail #getAllThumbs.name#');">
+				<cfflush />
+			</cfif>
 		</cfloop>
 		
+
+		<!--- list files - main --->
+		<cfdirectory directory = "#expandPath('dump/default')#" action = "list" name = "getAllFiles">
+		<cfloop query = "getAllFiles">
+			<cfif getAllFiles.type eq "file">
+				<cffile action = "move" source = "#expandPath('dump/default')#/#getAllFiles.name#" destination = "#newDir#">
+				<img src="/img/spacer.gif" onLoad="updateProgress(#round((getAllFiles.currentRow/getAllFiles.recordCount)*100)#,'Moving image #getAllFiles.name#');">
+				<cfflush />
+			</cfif>
+		</cfloop>
+		
+
+
 		<div class="progress">
 			<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 				<span class="sr-only">0%</span>
