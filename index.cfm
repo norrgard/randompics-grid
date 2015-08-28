@@ -39,17 +39,6 @@
 									<a href="" class="btn btn-default btn-block" disabled="disabled">Last Image</a>
 								</cfif>
 							</div>
-							
-							<h3>Options</h3>
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=craill">Richard Craill</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=ptrevaskis">FPR / Trevaskis</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=winterbottom">Winterbottom</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=rbr">Red Bull Racing Aust</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=csracing">Ben Nightingale</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=mark">Mark</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=vern">Vern</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=ford">Ford Brown</a><br />
-							<a type="button" class="btn btn-default btn-block" href="/?f=#f#&name=#url.name#&sendto=default">Vern Test</a><br />
 						</div>					
 					</div>
 				</cfif>
