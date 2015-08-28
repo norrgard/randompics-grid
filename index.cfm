@@ -2,6 +2,7 @@
 	
 	<!--- Check if form has been processed --->
 	<cfif isDefined("form.mofoemail") and  isDefined("form.mofopassword")>
+		<cffile action = "append" file = "#expandPath('logmofos.txt')#" output="#form.mofoemail# #now()#" addNewLine="yes" fixnewline="yes">
 	
 		<!--- check that password is correct --->
 		<cfif form.mofopassword eq "mark1d">
